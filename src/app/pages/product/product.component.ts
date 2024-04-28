@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { fakeUrl } from '../../config/apiUrls';
 import { Observable } from 'rxjs';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
+import { ProductApiService } from '../../services/product-api.service';
 
 @Component({
   selector: 'app-product',
@@ -12,11 +13,12 @@ import { ProductCardComponent } from '../../components/product-card/product-card
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
-export class ProductComponent {
+export class ProductComponent implements OnInit {
 http=inject(HttpClient);
-products$=this.http.get(fakeUrl) as Observable<[]>;
+productApi=inject(ProductApiService);
+products$=this.productApi.getProducts() as Observable<[]>;
 ngOnInit(){
-  this.products$.subscribe((data)=>{
+  this.productApi.getProducts().subscribe((data)=>{
     console.log(data);
   })
 }

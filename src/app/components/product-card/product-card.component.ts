@@ -1,5 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { ProductType } from '../../models/product.model';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../redux/app.state';
+import { addToCart, removeProduct } from '../../redux/cart/cart.actions';
 
 @Component({
   selector: 'app-product-card',
@@ -10,4 +13,11 @@ import { ProductType } from '../../models/product.model';
 })
 export class ProductCardComponent {
 @Input()product!:ProductType;
+constructor(private store:Store<AppState>){}
+AddProduct(){
+  this.store.dispatch(addToCart({product:this.product}));
+}
+RemoveProduct(){
+  this.store.dispatch(removeProduct({productId:this.product.id}));
+}
 }
