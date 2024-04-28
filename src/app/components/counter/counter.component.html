@@ -1,0 +1,18 @@
+<div class="p-10 grid place-content-center w-full">
+    <h1 class="text-center font-semibold mb-2">Angular NGRX</h1>
+    <hr>
+    <div class="w-[450px]  rounded shadow p-5 py-10 bg-white">
+<h3 class="text-center text-blue-400 font-semibold text-2xl">{{count$ | async}}</h3>
+<div class="mt-5 flex items-center justify-between">
+    <button (click)="Increment()" class="bg-green-400 hover:bg-green-600 text-white px-3 py-1 font-medium text-lg rounded cursor-pointer">
+        Increment
+    </button>
+    <button (click)="Decrement()" class="bg-red-400 hover:bg-red-600 text-white px-3 py-1 font-medium text-lg rounded cursor-pointer">
+        Decrement
+    </button>
+    <button (click)="Reset()" class="bg-indigo-400 hover:bg-indigo-600 text-white px-3 py-1 font-medium text-lg rounded cursor-pointer">
+        Reset
+    </button>
+</div>
+    </div>
+</div>
