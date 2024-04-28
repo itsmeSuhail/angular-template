@@ -14,6 +14,21 @@ import { addToCart, removeProduct } from '../../redux/cart/cart.actions';
 export class ProductCardComponent {
 @Input()product!:ProductType;
 constructor(private store:Store<AppState>){}
+ngOnInit(){
+  // this.store.select((store: AppState) => store.cart)
+  // .subscribe({
+  //   next: (data) => {
+  //     console.log(data, "hello");
+  //   },
+  //   error: (err) => {
+  //     console.error("Error occurred:", err);
+  //   },
+  //   complete: () => {
+  //     console.log("Subscription completed.");
+  //   }
+  // });
+
+}
 AddProduct(){
   this.store.dispatch(addToCart({product:this.product}));
 }

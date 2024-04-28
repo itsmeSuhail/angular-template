@@ -6,11 +6,15 @@ import { provideState, provideStore } from '@ngrx/store';
 import { counterReducer } from './redux/counter/counter.redcuer';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { cartReducer } from './redux/cart/cart.reducer';
+import { provideEffects } from '@ngrx/effects';
+import { productReducer } from './redux/product/product.redcuer';
+import { ProductEffect } from './redux/product/product.effect';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), provideStore(),
-  provideState({name:"counter",reducer:counterReducer}),
-  provideState({name:"cart",reducer:cartReducer}),
-  provideHttpClient(withFetch())
-  ]
+    provideState({ name: "counter", reducer: counterReducer }),
+    provideState({ name: "cart", reducer: cartReducer }),
+    provideState({name:"product",reducer:productReducer}),
+    provideEffects(ProductEffect),
+    provideHttpClient(withFetch()), provideEffects()],
 };
