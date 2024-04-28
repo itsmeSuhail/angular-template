@@ -1,0 +1,5 @@
+<div class="flex items-center flex-wrap p-10 gap-3">
+    <ng-container *ngFor="let product of (products$ | async)">
+        <app-product-card [product]="product" />
+    </ng-container>
+</div>

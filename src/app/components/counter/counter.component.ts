@@ -5,11 +5,12 @@ import { selectCounter } from '../../redux/counter/counter.selector';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { decrement, increment, reset } from '../../redux/counter/counter.actions';
+import { ParentComponent } from '../parent/parent.component';
 
 @Component({
   selector: 'app-counter',
   standalone: true,
-  imports: [AsyncPipe],
+  imports: [AsyncPipe,ParentComponent],
   templateUrl: './counter.component.html',
   styleUrl: './counter.component.css',
 })
