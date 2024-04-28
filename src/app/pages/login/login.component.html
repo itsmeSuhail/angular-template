@@ -1,0 +1,12 @@
+<form action="
+">
+<input placeholder="email" name="email" type="email" 
+[(ngModel)]="login.email"
+type="text" class="border bg-transparent focus-bg-none foucs outline-none text-sm text-gray px-2 mb-2">
+<input placeholder="password" name="password" type="password" 
+[(ngModel)]="login.password"
+type="password" class="border bg-transparent focus-bg-none foucs outline-none text-sm text-gray px-2 mb-2">
+<button (click)="submitNow()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+Login
+</button>
+</form>
