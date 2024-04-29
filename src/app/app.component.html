@@ -1,1 +1,16 @@
-<h1 class="text-blue-400">hello</h1>
+<label for="">username</label>
+<br>
+<input type="text" name="name" placeholder="enter your username" #userRef id="" class="border focus:outline-gray-400 rounded p-2 text-sm text-gray-300">
+<br>
+<button
+class="
+bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+(click)="onSubmit(userRef.value)"
+>
+Submit
+</button>
+<app-child1 [val]="userRef.value">
+    <h1>
+        hello child from parent
+    </h1>
+</app-child1>
