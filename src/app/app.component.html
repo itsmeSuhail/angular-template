@@ -1,1 +1,20 @@
-<h1 class="text-blue-400">hello</h1>
+<div class="p-5">
+  <nav>
+    <ul>
+      <li><a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">home</a></li>
+      <li><a routerLink="/subject" routerLinkActive="active" ariaCurrentWhenActive="page">subject</a></li>
+    </ul>
+  </nav>
+  <!-- The routed views render in the <router-outlet>-->
+  <router-outlet></router-outlet>
+  
+  <ng-container *ngIf="subjectRef; else kabhi">
+      <div class="bg-purple-300 inline-block p-2 text-white rounded">notify</div>
+  </ng-container>
+  <ng-template #kabhi>
+      <div class="bg-red-300 p-2 text-white rounded inline-block">kabhi nhi</div>
+  </ng-template>
+  
+  <router-outlet></router-outlet>
+  
+</div>
