@@ -1,0 +1,43 @@
+<!-- <h1 class="text-blue-400">hello</h1>
+<input type="file" name="" (change)="getFile($event)" id="">
+<input type="file" name="files" [(ngModel)]="files" id="">
+<div [ngClass]="customClass" [ngStyle]="{color:customeStyle}">hello</div>
+<div *ngIf="false;else log">this is if condition</div>
+<ng-template #log>this is else condition</ng-template>
+@if(10){
+    <h1>hello if condition</h1>
+}
+@else{
+    <h1>hello else condition</h1>
+}
+<div *ngFor="let item of ['dev','mota','dsa']">
+    <h1>{{item | fomat}}</h1>
+</div>
+<div [ngSwitch]="marks">
+    <h1 *ngSwitchCase="10">10</h1>
+    <h1 *ngSwitchCase="20">20</h1>
+    <h1 *ngSwitchCase="30">30</h1>
+    <h1 *ngSwitchCase="40">40</h1>
+    <h1 *ngSwitchCase="50">50</h1>
+    <h1 *ngSwitchDefault>default</h1>
+</div>
+<router-outlet/> -->
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <input placeholder="enter name" type="text" name="name" formControlName="name">
+    <input placeholder="enter name" type="text" name="email" formControlName="email">
+    <input placeholder="enter name" type="text" name="password" formControlName="password">
+    <div formGroupName="address">
+<input type="text" name="street" placeholder="enter name" formControlName="street">
+<input type="text" name="city" placeholder="enter name" formControlName="city">
+    </div>
+    <div formArratName="phoneNumbers"
+    >
+  <div *ngFor="let phone of phoneNumbers.controls; let i =index">
+    <label >phone number {{i+1}}</label>
+    <input type="text" name="i" placeholder="enter name" formControlName="i">
+    <button type="button" (click)="removePhone(i)" >remove</button>
+  </div>
+  <button type="button" (click)="addPhone()" >add</button>
+</div>
+    <button [disabled]="!userForm.valid" type="submit" >submit</button>
+</form>
